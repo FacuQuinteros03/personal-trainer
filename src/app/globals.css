@@ -1,33 +1,98 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+html {
+  scroll-behavior: smooth;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #080f17d0;
+  padding: 28px 12%;
+  transition: all 0.5 ease;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 26px;
+  color: #d5ca70;
+}
+.ul {
+  display: flex;
+}
+.ul a {
+  color: #fff;
+  font-size: 20px;
+  padding: 5px 0;
+  margin: 0px 20px;
+  transition: 0.5s;
+}
+.ul a:hover {
+  color: #d5ca70;
+}
+.Icon {
+  font-size: 22px;
+  color: #fff;
+  padding: 6px;
+  transition: 0.5s;
+}
+.Icon:hover {
+  color: #d5ca70;
+}
+
+.nav-responsive {
+  color: #fff;
+  padding: 5px 10px;
+  cursor: pointer;
+  display: none;
+}
+
+@media screen and (max-width: 1184px) {
+  .redes {
+    display: none;
   }
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@media screen and (max-width: 1050px) {
+  nav {
+    display: none;
+  }
+  .nav-responsive {
+    display: block;
+  }
+  nav.responsive {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 108px;
+    background: radial-gradient(
+      circle,
+      rgba(1, 8, 15, 0.938) 54%,
+      rgba(10, 20, 29, 0.932) 100%
+    );
+    width: 100%;
+    min-height: 100vh;
+  }
+  nav.responsive ul {
+    display: block !important;
+  }
+  nav.responsive ul li {
+    border-bottom: 1px solid rgba(10, 20, 29, 1);
+    padding: 50px 0;
+    text-align: center;
+  }
+  nav.responsive ul li a {
+    font-size: 32px;
   }
 }
