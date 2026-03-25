@@ -1,7 +1,7 @@
 'use client';
 import styles from '../app/styles/programms.module.css';
-import Card from '../components/Card';
-import useReveal from '../app/hooks/useReveal';
+import Card from './Card';
+import useReveal from '../hooks/useReveal';
 
 export default function Programs() {
   const { ref, visible } = useReveal({
