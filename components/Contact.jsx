@@ -83,7 +83,13 @@ export default function Contact() {
           <button type="submit" className={styles.button}>
             Enviar mensaje
           </button>
-          {status && <p className={styles.status}>{status}</p>}
+          <p
+            className={`${styles.status} ${
+              status.includes('exitosamente') ? styles.success : ''
+            } ${status.includes('Error') ? styles.error : ''}`}
+          >
+            {status}
+          </p>
         </form>
       </div>
     </section>

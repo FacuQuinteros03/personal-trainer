@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
-import styles from '../app/styles/plans.module.css';
+import styles from '../app/styles/Plans.module.css';
 
 export default function Plans() {
   const scrollRef = useRef(null);
