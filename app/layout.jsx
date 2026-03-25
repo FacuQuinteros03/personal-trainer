@@ -1,6 +1,6 @@
 import { Oswald } from 'next/font/google';
 import './globals.css';
-import NavBar from '../components/NavBar';
+import NavBar from './components/NavBar';
 
 const oswald = Oswald({ subsets: ['latin'] });
 
