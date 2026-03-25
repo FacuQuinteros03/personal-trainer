@@ -7,7 +7,7 @@ import {
   Flame,
   ClipboardList,
 } from 'lucide-react';
-import styles from '../app/styles/programms.module.css';
+import styles from '../styles/programms.module.css';
 
 const icons = {
   Musculación: <Dumbbell size={32} />,

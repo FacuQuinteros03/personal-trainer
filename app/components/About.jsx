@@ -1,5 +1,5 @@
 'use client';
-import styles from '../app/styles/about.module.css';
+import styles from '../styles/about.module.css';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 

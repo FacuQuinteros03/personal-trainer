@@ -1,5 +1,5 @@
 'use client';
-import styles from '../app/styles/contact.module.css';
+import styles from '../styles/contact.module.css';
 import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';

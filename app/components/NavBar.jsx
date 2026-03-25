@@ -1,8 +1,8 @@
 'use client';
-import styles from '../app/styles/navbar.module.css';
+import styles from '../styles/navbar.module.css';
 import Image from 'next/image';
 import { useState } from 'react';
-import { FaBars, FaWhatsapp, FaInstagram, FaFacebook } from 'react-icons/fa';
+import { FaBars, FaWhatsapp, FaInstagram } from 'react-icons/fa';
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);

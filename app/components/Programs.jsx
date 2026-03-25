@@ -1,5 +1,5 @@
 'use client';
-import styles from '../app/styles/programms.module.css';
+import styles from '../styles/programms.module.css';
 import Card from './Card';
 import useReveal from '../hooks/useReveal';
 

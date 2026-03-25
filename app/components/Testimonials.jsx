@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import styles from '../app/styles/Testimonials.module.css';
+import styles from '../styles/Testimonials.module.css';
 
 export default function Testimonials() {
   const testimonials = [
