@@ -1,5 +1,5 @@
 'use client';
-import styles from '../app/styles/NavBar.module.css';
+import styles from '../app/styles/navbar.module.css';
 import Image from 'next/image';
 import { useState } from 'react';
 import { FaBars, FaWhatsapp, FaInstagram, FaFacebook } from 'react-icons/fa';
