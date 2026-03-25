@@ -8,7 +8,7 @@ export const metadata = {
   title:
     'Vanguard Training - Entrenamientos personalizados para todos los niveles',
   description:
-    'A page for a personal trainer who offers differents types of trainings, clothings and programs',
+    'A page for a personal trainer who offers differents types of trainings and programs ',
 };
 
 export default function RootLayout({ children }) {
