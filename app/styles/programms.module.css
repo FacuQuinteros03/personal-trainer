@@ -1,0 +1,127 @@
+/* --- En programms.module.css --- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Más flexible */
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  perspective: 1000px; /* Para efectos 3D si quisieras */
+}
+
+.card {
+  position: relative;
+  padding: 40px 30px;
+  background: linear-gradient(
+    145deg,
+    rgba(30, 41, 59, 0.4),
+    rgba(15, 23, 42, 0.9)
+  );
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  text-align: left; /* Alineación a la izquierda se siente más profesional */
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.iconWrapper {
+  background: linear-gradient(135deg, #6366f1, #a855f7); /* Color vibrante */
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  color: white;
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+}
+
+.cardNumber {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 3rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.03); /* Número gigante casi invisible */
+  user-select: none;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  background: linear-gradient(to right, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hover: El efecto que le da "vida" */
+.card:hover {
+  transform: translateY(-12px) scale(1.02);
+  border-color: rgba(99, 102, 241, 0.5);
+  background: linear-gradient(
+    145deg,
+    rgba(30, 41, 59, 0.7),
+    rgba(15, 23, 42, 1)
+  );
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.card:hover .iconWrapper {
+  background: linear-gradient(
+    135deg,
+    #a855f7,
+    #6366f1
+  ); /* Invertir colores en hover */
+  box-shadow: 0 15px 30px rgba(168, 85, 247, 0.4);
+}
+
+/* Luz de fondo que sigue al hover (opcional pero top) */
+.cardGlow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(99, 102, 241, 0.15) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.card:hover .cardGlow {
+  opacity: 1;
+}
+
+/* Estilos para el título */
+.section {
+  padding: 100px 20px;
+  margin: 60px 0;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.titleVisible {
+  opacity: 1;
+  transform: translateY(0);
+}

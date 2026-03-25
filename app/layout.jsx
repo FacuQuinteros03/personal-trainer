@@ -1,11 +1,12 @@
 import { Oswald } from 'next/font/google';
 import './globals.css';
-import NavBar from '@/components/NavBar';
+import NavBar from '../components/NavBar';
 
 const oswald = Oswald({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Athletic Programmer',
+  title:
+    'Vanguard Training - Entrenamientos personalizados para todos los niveles',
   description:
     'A page for a personal trainer who offers differents types of trainings, clothings and programs',
 };

@@ -1,0 +1,139 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 8%;
+
+  background: rgba(2, 6, 23, 0.6);
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  color: #e2e8f0;
+}
+
+/* NAV */
+.nav {
+  display: flex;
+}
+
+.list {
+  display: flex;
+  gap: 30px;
+}
+
+/* LINKS (🔥 efecto moderno) */
+.link {
+  position: relative;
+  color: #94a3b8;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #e2e8f0;
+}
+
+/* underline animado */
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 0%;
+  height: 2px;
+
+  background: linear-gradient(90deg, #60a5fa, #a78bfa);
+  transition: all 0.3s ease;
+
+  transform: translateX(-50%);
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+/* SOCIALS */
+.socials {
+  display: flex;
+  gap: 12px;
+}
+
+.socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+
+  color: #94a3b8;
+  transition: all 0.25s ease;
+}
+
+.socials a:hover {
+  transform: translateY(-2px);
+  background: rgba(96, 165, 250, 0.15);
+  color: #e2e8f0;
+}
+
+/* MENU BUTTON */
+.menuButton {
+  display: none;
+  font-size: 22px;
+  color: #e2e8f0;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1050px) {
+  .nav {
+    display: none;
+  }
+
+  .nav.active {
+    display: block;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+
+    background: rgba(2, 6, 23, 0.95);
+    backdrop-filter: blur(12px);
+  }
+
+  .list {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+    gap: 25px;
+  }
+
+  .menuButton {
+    display: block;
+  }
+
+  .socials {
+    display: none;
+  }
+}

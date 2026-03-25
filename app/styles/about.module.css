@@ -1,49 +1,200 @@
-.contenedor {
-  background: conic-gradient(
-    at right top,
-    rgb(55, 65, 81),
-    rgb(17, 24, 39),
-    rgb(0, 0, 0)
-  );
-  min-height: 60vh;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  display: grid;
-  place-items: center;
+/* about.module.css UNIFICADO Y CORREGIDO */
+
+.section {
+  position: relative;
+  padding: 100px 20px;
+  background: linear-gradient(
+    180deg,
+    #020617 0%,
+    #0f172a 100%
+  ); /* Fondo oscuro profundo */
   text-align: center;
-}
-.title {
-  color: #d5ca70;
-  font-size: 64px;
-}
-.subtitle {
-  color: #d5ca70;
-  font-size: 32px;
-}
-.cards {
+  overflow: hidden; /* Evita que los efectos de luz se salgan */
   display: flex;
-  justify-content: space-between;
-}
-.card {
-  flex-basis: calc(33.3% - 1rem);
-  text-align: center;
-  color: #fff;
-}
-.imagenes {
-  color: #d5ca70;
-}
-.texto {
-  font-size: 24px;
-  color: #fff;
-  padding: 45px;
+  flex-direction: column;
+  align-items: center;
 }
 
-@media screen and (max-width: 800px) {
-  .title {
-    padding: 50px;
+/* Mancha de luz sutil en el fondo */
+.blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(96, 165, 250, 0.05) 0%,
+    transparent 70%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.title {
+  position: relative;
+  z-index: 3; /* Por encima de todo */
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #e2e8f0;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 800;
+}
+
+.grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* --- TARJETA CON BORDE ANIMADO Y HOVER SUTIL --- */
+
+.card {
+  position: relative;
+  padding: 40px 30px;
+  border-radius: 24px;
+  background: #08101f; /* Fondo sólido oscuro */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  /* Transición suave para el hover (movimiento y sombra) */
+  transition:
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+  border: 1px solid transparent; /* Base para el hover */
+}
+
+/* --- HOVER SUTIL EN LA TARJETA --- */
+.card:hover {
+  transform: translateY(-8px); /* Elevación sutil */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6); /* Sombra profunda */
+  border-color: rgba(96, 165, 250, 0.3); /* Un borde muy sutil se ilumina */
+}
+
+/* El "rayo" de luz que gira (borde animado) */
+.card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+
+  /* Gradiente cónico con el azul de tus planes (#60a5fa) */
+  background: conic-gradient(transparent, #60a5fa, transparent 30%);
+
+  animation: rotateBorder 6s linear infinite;
+  z-index: 1;
+}
+
+/* La "tapa" interna que crea el efecto de borde fino */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 2px; /* Grosor del borde */
+  background: #08101f; /* Mismo color que el fondo de la card */
+  border-radius: 22px;
+  z-index: 1;
+  transition: background 0.4s ease; /* Para suavizar el hover */
+}
+
+/* Pequeño cambio de fondo al hacer hover para dar profundidad */
+.card:hover::after {
+  background: #0b162a; /* Un tono más claro al hacer hover */
+}
+
+/* Asegurar que el contenido esté por encima de los pseudo-elementos */
+.iconContainer,
+.subtitle,
+.text {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes rotateBorder {
+  0% {
+    transform: rotate(0deg);
   }
-  .cards {
-    flex-direction: column;
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- CONTENIDO CON GLOW EN ICONOS --- */
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  border-radius: 50%;
+  background: rgba(96, 165, 250, 0.1);
+  margin-bottom: 25px;
+
+  /* --- EFECTO GLOW CONSTANTE --- */
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.2);
+  border: 1px solid rgba(96, 165, 250, 0.15);
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    background 0.4s ease;
+}
+
+/* Hover en el icono: se agranda y brilla más */
+.card:hover .iconContainer {
+  transform: scale(1.1) rotate(5deg);
+  background: rgba(96, 165, 250, 0.2);
+  box-shadow: 0 0 30px rgba(96, 165, 250, 0.4);
+}
+
+.icon {
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(
+    0 0 8px rgba(96, 165, 250, 0.5)
+  ); /* Brillo directo en la imagen */
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+  font-weight: 700;
+  transition: color 0.4s ease;
+}
+
+/* El título se ilumina un poco al hover */
+.card:hover .subtitle {
+  color: #fff;
+}
+
+.text {
+  font-size: 1rem;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 20px;
+  }
+  .grid {
+    gap: 25px;
+  }
+  .card {
+    padding: 30px 20px;
   }
 }

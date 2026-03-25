@@ -1,0 +1,181 @@
+.section {
+  padding: 80px 20px;
+  background:
+    linear-gradient(rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.95)),
+    url('/images/fondobyn.jpg') center/cover no-repeat;
+  text-align: center;
+  color: #e2e8f0;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: 800;
+}
+
+.subtitle {
+  color: #94a3b8;
+  margin-bottom: 60px;
+}
+
+/* GRID CONTAINER */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 10px;
+}
+
+/* CARD BASE */
+.card {
+  position: relative;
+  padding: 45px 30px 35px;
+  border-radius: 24px;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(96, 165, 250, 0.1);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.4s ease;
+}
+
+.cardContent {
+  flex-grow: 1;
+}
+
+/* HOVER DESKTOP */
+@media (min-width: 769px) {
+  .card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(96, 165, 250, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* DESTACADO */
+.popular {
+  border-color: rgba(96, 165, 250, 0.5);
+  background: rgba(30, 41, 59, 0.7);
+  box-shadow: 0 0 25px rgba(96, 165, 250, 0.1);
+}
+
+.badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #60a5fa;
+  color: #020617;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(96, 165, 250, 0.4);
+}
+
+.planName {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.price {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #60a5fa;
+  margin-bottom: 20px;
+}
+
+.perMonth {
+  font-size: 1rem;
+  color: #64748b;
+  font-weight: 400;
+}
+
+.features {
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+/* BOTÓN */
+.button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  background: rgba(96, 165, 250, 0.1);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: #60a5fa;
+  color: #020617;
+  border-color: #60a5fa;
+}
+
+/* 📱 MOBILE VIEW */
+@media (max-width: 768px) {
+  .grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 0; /* Controlado por el ancho de la card */
+    padding: 40px 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    flex: 0 0 85vw; /* Todas miden lo mismo exactamente */
+    min-width: 85vw;
+    margin: 0 7.5vw; /* Crea el espacio y centra */
+    scroll-snap-align: center;
+    padding: 40px 25px 25px;
+  }
+
+  .price {
+    font-size: 2.3rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+}
+
+/* DOTS */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #334155;
+  transition: all 0.3s ease;
+}
+
+.activeDot {
+  background: #60a5fa;
+  width: 24px;
+  border-radius: 10px;
+}

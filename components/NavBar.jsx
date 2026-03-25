@@ -1,89 +1,76 @@
 'use client';
-import React, { useState } from 'react';
+import styles from '../app/styles/NavBar.module.css';
 import Image from 'next/image';
-import Link from 'next/link';
+import { useState } from 'react';
 import { FaBars, FaWhatsapp, FaInstagram, FaFacebook } from 'react-icons/fa';
 
-function NavBar() {
-  const [menuVisible, setMenuVisible] = useState(false);
-
-  function mostrarOcultarMenu() {
-    setMenuVisible(!menuVisible);
-  }
-
-  function seleccionar() {
-    setMenuVisible(false);
-  }
-
-  const navClass = menuVisible ? 'responsive' : '';
+export default function NavBar() {
+  const [open, setOpen] = useState(false);
 
   return (
-    <header className="header">
-      <a href="" className="logo">
-        <Image src={'/images/logoIco.png'} alt="logo" width={50} height={40} />
-        Athletic Programmer
+    <header className={styles.header}>
+      <a href="#inicio" className={styles.logo}>
+        <Image src="/images/logoVT.png" alt="logo" width={40} height={40} />
+        VANGUARD TRAINING
       </a>
-      <nav className={navClass}>
-        <ul className="ul">
+
+      <nav className={`${styles.nav} ${open ? styles.active : ''}`}>
+        <ul className={styles.list}>
           <li>
-            <Link legacyBehavior href={'/'}>
-              <a href="" onClick={seleccionar}>
-                Inicio
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link legacyBehavior href={'/about'}>
-              <a href="" onClick={seleccionar}>
-                Nosotros
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link legacyBehavior href={'/programms'}>
-              <a href="" onClick={seleccionar}>
-                Programas
-              </a>
-            </Link>
-          </li>
-          <li>
-            <a href="" onClick={seleccionar}>
-              Merchandising
+            <a href="#inicio" className={styles.link}>
+              Inicio
             </a>
           </li>
           <li>
-            <Link legacyBehavior href={'/contact'}>
-              <a href="" onClick={seleccionar}>
-                Contacto
-              </a>
-            </Link>
+            <a href="#about" className={styles.link}>
+              Nosotros
+            </a>
+          </li>
+          <li>
+            <a href="#programs" className={styles.link}>
+              Programas
+            </a>
+          </li>
+          <li>
+            <a href="#planes" className={styles.link}>
+              Planes
+            </a>
+          </li>
+
+          <li>
+            <a href="#testimonios" className={styles.link}>
+              Testimonios
+            </a>
+          </li>
+
+          <li>
+            <a href="#contacto" className={styles.link}>
+              Contacto
+            </a>
           </li>
         </ul>
       </nav>
 
-      <div className="redes">
-        <a href="" target="_blank" className="Icon">
+      <div className={styles.socials}>
+        <a
+          href="https://wa.me/3416178059?text=Hola!%20%F0%9F%91%8B%20Me%20comunico%20desde%20la%20p%C3%A1gina%20web.%20%C2%BFMe%20das%20m%C3%A1s%20info%3F"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FaWhatsapp />
         </a>
         <a
-          href="https://www.instagram.com/athletic_programmr/"
+          href="https://www.instagram.com/vanguardtraining/"
           target="_blank"
-          className="Icon"
+          rel="noopener noreferrer"
         >
           <FaInstagram />
         </a>
-        <a href="" target="_blank" className="Icon">
-          <FaFacebook />
-        </a>
       </div>
 
-      <div className="nav-responsive" onClick={mostrarOcultarMenu}>
-        <div className="Icon">
-          <FaBars />
-        </div>
+      <div className={styles.menuButton} onClick={() => setOpen(!open)}>
+        <FaBars />
       </div>
     </header>
   );
 }
-
-export default NavBar;
