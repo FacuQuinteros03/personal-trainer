@@ -179,3 +179,18 @@
   width: 24px;
   border-radius: 10px;
 }
+
+/* Ocultar los dots por defecto en pantallas grandes */
+.dots {
+  display: none;
+}
+
+/* Solo mostrarlos en Mobile (768px o menos) */
+@media (max-width: 768px) {
+  .dots {
+    display: flex; /* O el valor que ya tenías */
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+}
