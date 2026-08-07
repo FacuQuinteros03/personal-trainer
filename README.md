@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Vanguard Training — Personal Training Platform
 
-## Getting Started
+Marketing site for a personal training brand, built to present training programs across six disciplines, membership tiers and client testimonials, with a contact form that sends enquiries straight to the trainer's inbox.
 
-First, run the development server:
+**Live site:** https://vanguardtraining.vercel.app
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Stack
+
+- **Next.js 14** (App Router)
+- **React 18**
+- **CSS Modules** for scoped, per-component styling
+- **Framer Motion** for scroll and entrance animations
+- **EmailJS** for the contact form, no backend required
+- **Lucide / React Icons** for iconography
+
+## Features
+
+- Responsive, mobile-first layout across all sections
+- Component-based architecture: navigation, hero, philosophy, programs, membership plans, testimonials, contact and footer are independent components
+- Membership pricing tiers and a six-discipline programs grid driven by a shared data structure
+- Custom `useReveal` hook that animates sections as they enter the viewport
+- Working contact form wired to EmailJS with client-side validation
+- Reusable `Card` component driving the programs and plans sections
+
+## Project structure
+
+```
+app/
+├── components/     # UI components (Navigation, Inicio, About, Programs,
+│                   #   Plans, Testimonials, Contact, Card, Footer)
+├── hooks/          # useReveal — scroll-triggered animations
+├── styles/         # CSS Modules, one per component
+├── layout.jsx      # Root layout
+└── page.jsx        # Home page composition
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Running locally
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+npm install
+cp .env.example .env.local   # add your own EmailJS credentials
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## Environment variables
 
-To learn more about Next.js, take a look at the following resources:
+| Variable | Description |
+|---|---|
+| `NEXT_PUBLIC_EMAILJS_SERVICE_ID` | EmailJS service ID |
+| `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID` | EmailJS template ID |
+| `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` | EmailJS public key |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+These are public by design (EmailJS exposes them in the browser). Restrict the key to your own domain from the EmailJS dashboard.
